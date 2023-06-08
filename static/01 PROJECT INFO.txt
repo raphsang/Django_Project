@@ -1,0 +1,11 @@
+**Log on to codeastro.com for more projects!**
+
+**Developed By Sumit Kumar**
+
+**Instructions**
+- Install the Requirements: pip install -r requirements.txt
+- Then, make database migrations: python3 manage.py makemigrations
+- python3 manage.py migrate
+- And finally, run the application: python3 manage.py runserver
+
+For Admin Account, please create one with superuser!

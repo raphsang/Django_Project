@@ -1,0 +1,247 @@
+{% extends 'customer/customerbase.html' %}
+{% block content %}
+{%load static%}
+
+<head>
+  
+  <link href="http://netdna.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
+  <script src="//netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
+  <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+
+
+
+  <style media="screen">
+    body{
+    background-color: #C0C0C0;
+    }
+    h4 {
+    text-align: center;
+    margin: 0;
+    }
+    h2 {
+    margin: 0;
+    }
+    #multi-step-form-container {
+    margin-top: 2rem;
+    }
+    .text-center {
+    text-align: center;
+    }
+    .mx-auto {
+    margin-left: auto;
+    margin-right: auto;
+    }
+    .pl-0 {
+    padding-left: 0;
+    }
+    .button {
+    padding: 0.7rem 1.5rem;
+    border: 1px solid #4361ee;
+    background-color: #4361ee;
+    color: #fff;
+    border-radius: 5px;cursor: pointer;
+    }
+    .submit-btn {
+    border: 1px solid #0e9594;
+    background-color: #0e9594;
+    }
+    .mt-3 {
+    margin-top: 2rem;
+    }
+    .d-none {
+    display: none;
+    }
+    .form-step {
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    border-radius: 20px;
+    padding: 3rem;
+    background-color:red
+    }
+    .font-normal {
+    font-weight: normal;
+    }
+    ul.form-stepper {
+    counter-reset: section;
+    margin-bottom: 3rem;
+    }
+    ul.form-stepper .form-stepper-circle {position: relative;
+    }
+    ul.form-stepper .form-stepper-circle span {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translateY(-50%) translateX(-50%);
+    }
+    .form-stepper-horizontal {
+    position: relative;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: justify;
+    -ms-flex-pack: justify;
+    justify-content: space-between;
+    }
+    ul.form-stepper > li:not(:last-of-type) {
+    margin-bottom: 0.625rem;
+    -webkit-transition: margin-bottom 0.4s;
+    -o-transition: margin-bottom 0.4s;
+    transition: margin-bottom 0.4s;
+    }
+    .form-stepper-horizontal > li:not(:last-of-type) {
+    margin-bottom: 0 !important;}
+    .form-stepper-horizontal li {
+    position: relative;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-flex: 1;
+    -ms-flex: 1;
+    flex: 1;
+    -webkit-box-align: start;
+    -ms-flex-align: start;
+    align-items: start;
+    -webkit-transition: 0.5s;
+    transition: 0.5s;
+    }
+    .form-stepper-horizontal li:not(:last-child):after {
+    position: relative;
+    -webkit-box-flex: 1;
+    -ms-flex: 1;
+    flex: 1;
+    height: 1px;
+    content: "";
+    top: 32%;
+    }
+    .form-stepper-horizontal li:after {background-color: #dee2e6;
+    }
+    .form-stepper-horizontal li.form-stepper-completed:after {
+    background-color: #4da3ff;
+    }
+    .form-stepper-horizontal li:last-child {
+    flex: unset;
+    }
+    ul.form-stepper li a .form-stepper-circle {
+    display: inline-block;
+    width: 40px;
+    height: 40px;
+    margin-right: 0;
+    line-height: 1.7rem;
+    text-align: center;
+    background: rgba(0, 0, 0, 0.38);
+    border-radius: 50%;
+    }
+    .form-stepper .form-stepper-active .form-stepper-circle {
+    background-color: #4361ee !important;
+    color: #fff;
+    }
+    .form-stepper .form-stepper-active .label {
+    color: #4361ee !important;
+    }.form-stepper .form-stepper-active .form-stepper-circle:hover {
+    background-color: #4361ee !important;
+    color: #fff !important;
+    }
+    .form-stepper .form-stepper-unfinished .form-stepper-circle {
+    background-color: #f8f7ff;
+    }
+    .form-stepper .form-stepper-completed .form-stepper-circle {
+    background-color: #0e9594 !important;
+    color: #fff;
+    }
+    .form-stepper .form-stepper-completed .label {
+    color: #0e9594 !important;
+    }
+    .form-stepper .form-stepper-completed .form-stepper-circle:hover {
+    background-color: #0e9594 !important;
+    color: #fff !important;
+    }
+    .form-stepper .form-stepper-active span.text-muted {
+    color: #fff !important;
+    }
+    .form-stepper .form-stepper-completed span.text-muted {
+    color: #fff !important;
+    }
+    .form-stepper .label {font-size: 1rem;
+    margin-top: 0.5rem;
+    }
+    .form-stepper a {
+    cursor: default;
+    }
+
+
+    a:link {
+      text-decoration: none;
+    }
+
+    h6 {
+      text-align: center;
+    }
+
+    .row {
+      margin: 100px;
+    }
+       label #sidebar_btn {
+      z-index: 1;
+      color: #fff;
+      position: fixed;
+      cursor: pointer;
+      left: 300px;
+      padding-left: 60px;
+      margin-top:15px;
+      font-size: 20px;
+      
+      transition: 0.5s;
+      transition-property: color;
+    }
+  </style>
+</head>
+<div>
+  <p><b>NOTE:</b> that a policy will only be approved, after you have completed making payment. <br>
+  Your policy will be processed and communicated to you through email within 24 hrs</p>
+</div>
+<div class="container">
+  <div class="panel panel-primary">
+    <div class="panel-heading">
+      <h3 class="text-center">Available Policies</h3>
+    </div>
+    <table class="table table-hover table-striped table-bordered" id="dev-table">
+      <thead class="thead-dark">
+        <tr>
+        <th>#</th>
+          <th>Policy Name</th>
+          <th> Category</th>
+          <th> Sum Assurance /<br>Insurance in (Ksh)</th>
+          <th> Premium (ksh)</th>
+          <th> Tenure (months)</th>
+          <th> Creation Date</th>
+          <th> Action</th>
+          
+        </tr>
+      </thead>
+      {% for t in policies %}
+      <tr>
+        <td> {{ forloop.counter }}</td>
+        <td> {{t.policy_name}}</td>
+        <td> {{t.category}}</td>
+        <td> {{t.sum_assurance}}</td>
+        <td> {{t.premium}}</td>
+        <td> {{t.tenure}} </td>
+        <td>{{t.creation_date}}</td>
+        <td><a class="btn btn-success btn-xs" href="{% url 'apply' t.id  %}">Apply</a></td>
+      </tr>
+      {% endfor %}
+    </table>
+  </div>
+</div>
+<h3>  Make Payment</h3>
+<form method="POST" action="{% url 'index' %}">
+    {% csrf_token %}    <label for="amount">Amount:</label>
+
+    <label for="phone_number">Phone number:</label>
+    <input type="text" name="phone_number">
+    <input type="text" name="amount">
+    <button type="submit">Pay</button>
+</form>
+<br><br><br><br><br><br>
+{% endblock content %}

@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html lang="en">
+{% block content %}
+{%load static%}
+<form method="POST" action="{% url 'index' %}">
+    {% csrf_token %}
+    <label for="phone_number">Phone number:</label>
+    <input type="text" name="phone_number">
+    <label for="amount">Amount:</label>
+    <input type="text" name="amount">
+    <button type="submit">Pay</button>
+</form>
+
+</html>
